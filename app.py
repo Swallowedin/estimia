@@ -6,16 +6,18 @@ import logging
 from typing import Tuple, Dict, Any
 import importlib.util
 
-# Importez la fonction get_tarifs depuis le fichier tarifs-prestations.py
-from tarifs_prestations import get_tarifs
-
-# Appelez la fonction pour obtenir les tarifs
-tarifs = get_tarifs()
-
-# Maintenant vous pouvez utiliser la variable tarifs
-print("Structure de tarifs:", json.dumps(tarifs, indent=2))
-
 st.set_page_config(page_title="View Avocats - Obtenez une estimation grâce à l'IA", page_icon="⚖️", layout="wide")
+
+# Import direct depuis tarifs-prestations.py
+try:
+    from tarifs_prestations import get_tarifs
+    tarifs = get_tarifs()
+    print("Importation réussie. Structure de tarifs:", json.dumps(tarifs, indent=2))
+except ImportError as e:
+    print("Erreur d'importation:", e)
+except Exception as e:
+    print("Erreur lors de l'initialisation de 'tarifs':", e)
+
 
 # Configuration du logging
 logging.basicConfig(level=logging.INFO)

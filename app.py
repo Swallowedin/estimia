@@ -6,6 +6,13 @@ import logging
 from typing import Tuple, Dict, Any
 import importlib.util
 
+# Load the tarifs module
+tarifs_module = load_py_module('./tarifs-prestations.py', 'tarifs_prestations')
+tarifs = tarifs_module.get_tarifs() if tarifs_module else {}
+
+# Now you can use the tarifs variable
+print("Structure de tarifs:", json.dumps(tarifs, indent=2))
+
 st.set_page_config(page_title="View Avocats - Obtenez une estimation grâce à l'IA", page_icon="⚖️", layout="wide")
 
 # Configuration du logging

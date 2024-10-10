@@ -6,11 +6,13 @@ import logging
 from typing import Tuple, Dict, Any
 import importlib.util
 
-# Load the tarifs module
-tarifs_module = load_py_module('./tarifs-prestations.py', 'tarifs_prestations')
-tarifs = tarifs_module.get_tarifs() if tarifs_module else {}
+# Importez la fonction get_tarifs depuis le fichier tarifs-prestations.py
+from tarifs_prestations import get_tarifs
 
-# Now you can use the tarifs variable
+# Appelez la fonction pour obtenir les tarifs
+tarifs = get_tarifs()
+
+# Maintenant vous pouvez utiliser la variable tarifs
 print("Structure de tarifs:", json.dumps(tarifs, indent=2))
 
 st.set_page_config(page_title="View Avocats - Obtenez une estimation grâce à l'IA", page_icon="⚖️", layout="wide")

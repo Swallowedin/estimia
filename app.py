@@ -8,33 +8,6 @@ import importlib.util
 
 st.set_page_config(page_title="View Avocats - Obtenez une estimation grâce à l'IA", page_icon="⚖️", layout="wide")
 
-print("Structure de tarifs:", json.dumps(tarifs, indent=2))
-
-# Fonction pour appliquer le CSS personnalisé
-def apply_custom_css():
-    st.markdown("""
-        <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            .stApp > header {
-                background-color: transparent;
-            }
-            .stApp {
-                margin-top: -80px;
-            }
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-            .loading-icon {
-                animation: spin 1s linear infinite;
-                display: inline-block;
-                margin-right: 10px;
-            }
-        </style>
-    """, unsafe_allow_html=True)
-
 # Configuration du logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -188,7 +161,6 @@ def main():
                 domaine_label = domaine_info.get('label', domaine.replace('_', ' ').title())
                 prestation_label = prestation_info.get('label', prestation.replace('_', ' ').title())
 
-                # Création d'une colonne pour l'estimation
                 col1, col2 = st.columns([2, 1])
 
                 with col1:
@@ -202,7 +174,7 @@ def main():
                         tarif = prestation_info.get('tarif', 'Non disponible')
                         if isinstance(tarif, (int, float)):
                             if urgency == "Urgent":
-                                tarif = round(tarif * 1.5)  # Facteur d'urgence fixé à 1.5
+                                tarif = round(tarif * 1.5)
                             st.markdown(f"<h1 style='text-align: center; color: #1f77b4;'>À partir de<br>{tarif} €HT</h1>", unsafe_allow_html=True)
                         else:
                             st.markdown(f"<h2 style='text-align: center; color: #1f77b4;'>{tarif}</h2>", unsafe_allow_html=True)
@@ -239,3 +211,6 @@ def main():
 
     st.markdown("---")
     st.write("© 2024 View Avocats. Tous droits réservés.")
+
+if __name__ == "__main__":
+    main()

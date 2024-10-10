@@ -34,7 +34,7 @@ def load_py_module(file_path: str, module_name: str):
         spec.loader.exec_module(module)
         return module
     except Exception as e:
-        logger.error(f"Erreur lors du chargement du module {module_name}: {e}")
+        logging.error(f"Erreur lors du chargement du module {module_name}: {e}")
         return None
 
 tarifs_module = load_py_module('./tarifs-prestations.py', 'tarifs_prestations')

@@ -1,31 +1,35 @@
-def get_tarifs():
-    return {
-        "tarif_horaire_standard": 250,  # Taux horaire moyen
-        "facteur_urgence": 1.5,  # Facteur multiplicateur pour les cas urgents
-        "forfaits": {
-            "consultation_initiale": 100,
-            "création_entreprise": 3000,
-            "rédaction_contrat_simple": 800,
-            "rédaction_contrat_complexe": 2000,
-            "procédure_divorce_amiable": 3750,
-            "rédaction_statuts_société": 1200,
-            "dépôt_marque": 1000,
-            "rédaction_bail_commercial": 2500,
-            "rédaction_bail_locatif": 1000,
-            "assignation_justice": 1000,
-            "constitution_partie_civile": 5000,
-            # Forfaits spécifiques au droit de la construction
-            "litige_droit_construction": 500,
-            "rédaction_contrat_construction": 2500,
-            "litige_malfacons_simple": 5000,
-            "litige_malfacons_complexe": 10000,
-            "assistance_expertise_judiciaire": 2000,
-            "procédure_référé_construction": 3750
-        },
-        "frais_additionnels": {
-            "frais_de_dossier": 150,
-            "frais_de_déplacement_par_km": 0.6,
-            "forfait_expertise_judiciaire": 1000,
-            "forfait_déplacement_chantier": 300
-        }
-    }
+"droit_social_et_travail": {
+                "redaction_contrat_travail": 600,
+                "rupture_conventionnelle": 800,
+                "licenciement_economique": 1500,
+                "licenciement_faute_grave": 1200,
+                "negociation_accord_entreprise": 2000,
+                "consultation_droit_travail": 300,
+                "procedure_prudhommes": 1800,
+                "redaction_reglement_interieur": 1000,
+                "audit_social": 2500,
+                "accompagnement_inspection_travail": 1200
+            },
+            "droit_famille": {
+                "procedure_divorce_contentieux": 3000,
+                "procedure_garde_enfants": 1500,
+                "redaction_convention_parentale": 800,
+                "procedure_adoption": 2500,
+                "liquidation_regime_matrimonial": 2000,
+                "procedure_pension_alimentaire": 1000,
+                "protection_majeur_incapable": 1800,
+                "contestation_paternite": 2000,
+                "redaction_contrat_mariage": 1200,
+                "procedure_changement_nom": 800
+            },
+            "droit_penal": {
+                "defense_tribunal_correctionnel": 2500,
+                "defense_cour_assises": 5000,
+                "procedure_comparution_immediate": 1500,
+                "constitution_partie_civile": 1200,
+                "recours_detention_provisoire": 1800,
+                "assistance_garde_vue": 800,
+                "procedure_liberation_conditionnelle": 1500,
+                "accompagnement_execution_peine": 1000,
+                "procedure_revision_proces": 3000,
+                "defense_mineur_delinquant": 2000
